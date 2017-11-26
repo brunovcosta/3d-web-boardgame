@@ -162,10 +162,10 @@ var moveRules = {
 
 var attackRules = {
 	king: moveRules.king,
-	queen: moveRules.king,
-	bishop: moveRules.king,
-	rook: moveRules.king,
-	knight: moveRules.king,
+	queen: moveRules.queen,
+	bishop: moveRules.bishop,
+	rook: moveRules.rook,
+	knight: moveRules.knight,
 	pawn: function(pos,color){
 		return [
 			[ 1,color==="white"?1:-1],
