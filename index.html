@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width" />
+		<title>Table Game</title>
+		<script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+		<script src="https://code.jquery.com/ui/1.12.0/jquery-ui.min.js" integrity="sha256-eGE6blurk5sHj+rmkfsGYeKyZx3M4bG+ZlFyA7Kns7E=" crossorigin="anonymous"></script>
+		<link rel="stylesheet" href="./style.css" type="text/css" media="screen" charset="utf-8">
+	</head>
+	<body>
+		<table id="chess_board" cellpadding="0" cellspacing="0">
+			<tr>
+				<td><a href="#">8</a></td>
+				<td id="A8"><a href="#" class="piece rook black">&#9820;</a></td>
+				<td id="B8"><a href="#" class="piece knight black">&#9822;</a></td>
+				<td id="C8"><a href="#" class="piece bishop black">&#9821;</a></td>
+				<td id="D8"><a href="#" class="piece king black">&#9818;</a></td>
+				<td id="E8"><a href="#" class="piece queen black">&#9819;</a></td>
+				<td id="F8"><a href="#" class="piece bishop black">&#9821;</a></td>
+				<td id="G8"><a href="#" class="piece knight black">&#9822;</a></td>
+				<td id="H8"><a href="#" class="piece rook black">&#9820;</a></td>
+			</tr>
+			<tr>
+				<td><a href="#">7</a></td>
+				<td id="A7"><a href="#" class="piece pawn black">&#9823;</a></td>
+				<td id="B7"><a href="#" class="piece pawn black">&#9823;</a></td>
+				<td id="C7"><a href="#" class="piece pawn black">&#9823;</a></td>
+				<td id="D7"><a href="#" class="piece pawn black">&#9823;</a></td>
+				<td id="E7"><a href="#" class="piece pawn black">&#9823;</a></td>
+				<td id="F7"><a href="#" class="piece pawn black">&#9823;</a></td>
+				<td id="G7"><a href="#" class="piece pawn black">&#9823;</a></td>
+				<td id="H7"><a href="#" class="piece pawn black">&#9823;</a></td>
+			</tr>
+			<tr>
+				<td><a href="#">6</a></td>
+				<td id="A6"></td>
+				<td id="B6"></td>
+				<td id="C6"></td>
+				<td id="D6"></td>
+				<td id="E6"></td>
+				<td id="F6"></td>
+				<td id="G6"></td>
+				<td id="H6"></td>
+			</tr>
+			<tr>
+				<td><a href="#">5</a></td>
+				<td id="A5"></td>
+				<td id="B5"></td>
+				<td id="C5"></td>
+				<td id="D5"></td>
+				<td id="E5"></td>
+				<td id="F5"></td>
+				<td id="G5"></td>
+				<td id="H5"></td>
+			</tr>
+			<tr>
+				<td><a href="#">4</a></td>
+				<td id="A4"></td>
+				<td id="B4"></td>
+				<td id="C4"></td>
+				<td id="D4"></td>
+				<td id="E4"></td>
+				<td id="F4"></td>
+				<td id="G4"></td>
+				<td id="H4"></td>
+			</tr>
+			<tr>
+				<td><a href="#">3</a></td>
+				<td id="A3"></td>
+				<td id="B3"></td>
+				<td id="C3"></td>
+				<td id="D3"></td>
+				<td id="E3"></td>
+				<td id="F3"></td>
+				<td id="G3"></td>
+				<td id="H3"></td>
+			</tr>
+			<tr>
+				<td><a href="#">2</a></td>
+				<td id="A2"><a href="#" class="piece pawn white">&#9817;</a></td>
+				<td id="B2"><a href="#" class="piece pawn white">&#9817;</a></td>
+				<td id="C2"><a href="#" class="piece pawn white">&#9817;</a></td>
+				<td id="D2"><a href="#" class="piece pawn white">&#9817;</a></td>
+				<td id="E2"><a href="#" class="piece pawn white">&#9817;</a></td>
+				<td id="F2"><a href="#" class="piece pawn white">&#9817;</a></td>
+				<td id="G2"><a href="#" class="piece pawn white">&#9817;</a></td>
+				<td id="H2"><a href="#" class="piece pawn white">&#9817;</a></td>
+			</tr>
+			<tr>
+				<td><a href="#">1</a></td>
+				<td id="A1"><a href="#" class="piece rook white">&#9814;</a></td>
+				<td id="B1"><a href="#" class="piece knight white">&#9816;</a></td>
+				<td id="C1"><a href="#" class="piece bishop white">&#9815;</a></td>
+				<td id="D1"><a href="#" class="piece king white">&#9812;</a></td>
+				<td id="E1"><a href="#" class="piece queen white">&#9813;</a></td>
+				<td id="F1"><a href="#" class="piece bishop white">&#9815;</a></td>
+				<td id="G1"><a href="#" class="piece knight white">&#9816;</a></td>
+				<td id="H1"><a href="#" class="piece rook white">&#9814;</a></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td id="A1"><a href="#">A</a></td>
+				<td id="B1"><a href="#">B</a></td>
+				<td id="C1"><a href="#">C</a></td>
+				<td id="D1"><a href="#">D</a></td>
+				<td id="E1"><a href="#">E</a></td>
+				<td id="F1"><a href="#">F</a></td>
+				<td id="G1"><a href="#">G</a></td>
+				<td id="H1"><a href="#">H</a></td>
+			</tr>
+		</table>
+		<script src="./code.js"></script>
+	</body>
+</html>
