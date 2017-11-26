@@ -42,44 +42,44 @@ var moveRules = {
 	queen: function(pos,color){
 		var possible = [];
 		for(var i=1;i<8;i++){
+			possible.push([i,i]);
 			if(!pos.plus([i,i]).empty())
 				break;
-			possible.push([i,i]);
 		}
 		for(var i=1;i<8;i++){
+			possible.push([i,0]);
 			if(!pos.plus([i,0]).empty())
 				break;
-			possible.push([i,0]);
 		}
 		for(var i=1;i<8;i++){
+			possible.push([0,i]);
 			if(!pos.plus([0,i]).empty())
 				break;
-			possible.push([0,i]);
 		}
 		for(var i=1;i<8;i++){
+			possible.push([i,-i]);
 			if(!pos.plus([i,-i]).empty())
 				break;
-			possible.push([i,-i]);
 		}
 		for(var i=1;i<8;i++){
+			possible.push([-i,i]);
 			if(!pos.plus([-i,i]).empty())
 				break;
-			possible.push([-i,i]);
 		}
 		for(var i=1;i<8;i++){
+			possible.push([-i,0]);
 			if(!pos.plus([-i,0]).empty())
 				break;
-			possible.push([-i,0]);
 		}
 		for(var i=1;i<8;i++){
+			possible.push([0,-i]);
 			if(!pos.plus([0,-i]).empty())
 				break;
-			possible.push([0,-i]);
 		}
 		for(var i=1;i<8;i++){
+			possible.push([-i,-i]);
 			if(!pos.plus([-i,-i]).empty())
 				break;
-			possible.push([-i,-i]);
 		}
 		return possible;
 
@@ -87,24 +87,24 @@ var moveRules = {
 	rook: function(pos,color){
 		var possible = [];
 		for(var i=1;i<8;i++){
+			possible.push([i,0]);
 			if(!pos.plus([i,0]).empty())
 				break;
-			possible.push([i,0]);
 		}
 		for(var i=1;i<8;i++){
+			possible.push([0,i]);
 			if(!pos.plus([0,i]).empty())
 				break;
-			possible.push([0,i]);
 		}
 		for(var i=1;i<8;i++){
+			possible.push([-i,0]);
 			if(!pos.plus([-i,0]).empty())
 				break;
-			possible.push([-i,0]);
 		}
 		for(var i=1;i<8;i++){
+			possible.push([0,-i]);
 			if(!pos.plus([0,-i]).empty())
 				break;
-			possible.push([0,-i]);
 		}
 		return possible;
 
@@ -112,24 +112,24 @@ var moveRules = {
 	bishop: function(pos,color){
 		var possible = [];
 		for(var i=1;i<8;i++){
+			possible.push([i,i]);
 			if(!pos.plus([i,i]).empty())
 				break;
-			possible.push([i,i]);
 		}
 		for(var i=1;i<8;i++){
+			possible.push([i,-i]);
 			if(!pos.plus([i,-i]).empty())
 				break;
-			possible.push([i,-i]);
 		}
 		for(var i=1;i<8;i++){
+			possible.push([-i,i]);
 			if(!pos.plus([-i,i]).empty())
 				break;
-			possible.push([-i,i]);
 		}
 		for(var i=1;i<8;i++){
+			possible.push([-i,-i]);
 			if(!pos.plus([-i,-i]).empty())
 				break;
-			possible.push([-i,-i]);
 		}
 		return possible;
 
