@@ -1,4 +1,4 @@
-a {
+.piece {
 	color:#000;
 	display:block;
 	font-size:60px;
@@ -39,3 +39,7 @@ a {
 	transition: all 1s;
 }
 
+
+.slot{
+	display:inline-block;
+}

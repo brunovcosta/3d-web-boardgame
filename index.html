@@ -6,31 +6,31 @@
 		<title>Table Game</title>
 		<script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
 		<script src="https://code.jquery.com/ui/1.12.0/jquery-ui.min.js" integrity="sha256-eGE6blurk5sHj+rmkfsGYeKyZx3M4bG+ZlFyA7Kns7E=" crossorigin="anonymous"></script>
-		<link rel="stylesheet" href="./style.css" type="text/css" media="screen" charset="utf-8">
+		<link rel="stylesheet" href="/css/style.css" type="text/css" media="screen" charset="utf-8">
 	</head>
 	<body>
 		<table id="chess_board" cellpadding="0" cellspacing="0">
 			<tr>
 				<td><a href="#">8</a></td>
-				<td id="A8"><a href="#" class="piece rook black">&#9820;</a></td>
-				<td id="B8"><a href="#" class="piece knight black">&#9822;</a></td>
-				<td id="C8"><a href="#" class="piece bishop black">&#9821;</a></td>
-				<td id="D8"><a href="#" class="piece king black">&#9818;</a></td>
-				<td id="E8"><a href="#" class="piece queen black">&#9819;</a></td>
-				<td id="F8"><a href="#" class="piece bishop black">&#9821;</a></td>
-				<td id="G8"><a href="#" class="piece knight black">&#9822;</a></td>
-				<td id="H8"><a href="#" class="piece rook black">&#9820;</a></td>
+				<td id="A8"></td>
+				<td id="B8"></td>
+				<td id="C8"></td>
+				<td id="D8"></td>
+				<td id="E8"></td>
+				<td id="F8"></td>
+				<td id="G8"></td>
+				<td id="H8"></td>
 			</tr>
 			<tr>
 				<td><a href="#">7</a></td>
-				<td id="A7"><a href="#" class="piece pawn black">&#9823;</a></td>
-				<td id="B7"><a href="#" class="piece pawn black">&#9823;</a></td>
-				<td id="C7"><a href="#" class="piece pawn black">&#9823;</a></td>
-				<td id="D7"><a href="#" class="piece pawn black">&#9823;</a></td>
-				<td id="E7"><a href="#" class="piece pawn black">&#9823;</a></td>
-				<td id="F7"><a href="#" class="piece pawn black">&#9823;</a></td>
-				<td id="G7"><a href="#" class="piece pawn black">&#9823;</a></td>
-				<td id="H7"><a href="#" class="piece pawn black">&#9823;</a></td>
+				<td id="A7"></td>
+				<td id="B7"></td>
+				<td id="C7"></td>
+				<td id="D7"></td>
+				<td id="E7"></td>
+				<td id="F7"></td>
+				<td id="G7"></td>
+				<td id="H7"></td>
 			</tr>
 			<tr>
 				<td><a href="#">6</a></td>
@@ -78,25 +78,25 @@
 			</tr>
 			<tr>
 				<td><a href="#">2</a></td>
-				<td id="A2"><a href="#" class="piece pawn white">&#9817;</a></td>
-				<td id="B2"><a href="#" class="piece pawn white">&#9817;</a></td>
-				<td id="C2"><a href="#" class="piece pawn white">&#9817;</a></td>
-				<td id="D2"><a href="#" class="piece pawn white">&#9817;</a></td>
-				<td id="E2"><a href="#" class="piece pawn white">&#9817;</a></td>
-				<td id="F2"><a href="#" class="piece pawn white">&#9817;</a></td>
-				<td id="G2"><a href="#" class="piece pawn white">&#9817;</a></td>
-				<td id="H2"><a href="#" class="piece pawn white">&#9817;</a></td>
+				<td id="A2"></td>
+				<td id="B2"></td>
+				<td id="C2"></td>
+				<td id="D2"></td>
+				<td id="E2"></td>
+				<td id="F2"></td>
+				<td id="G2"></td>
+				<td id="H2"></td>
 			</tr>
 			<tr>
 				<td><a href="#">1</a></td>
-				<td id="A1"><a href="#" class="piece rook white">&#9814;</a></td>
-				<td id="B1"><a href="#" class="piece knight white">&#9816;</a></td>
-				<td id="C1"><a href="#" class="piece bishop white">&#9815;</a></td>
-				<td id="D1"><a href="#" class="piece king white">&#9812;</a></td>
-				<td id="E1"><a href="#" class="piece queen white">&#9813;</a></td>
-				<td id="F1"><a href="#" class="piece bishop white">&#9815;</a></td>
-				<td id="G1"><a href="#" class="piece knight white">&#9816;</a></td>
-				<td id="H1"><a href="#" class="piece rook white">&#9814;</a></td>
+				<td id="A1"></td>
+				<td id="B1"></td>
+				<td id="C1"></td>
+				<td id="D1"></td>
+				<td id="E1"></td>
+				<td id="F1"></td>
+				<td id="G1"></td>
+				<td id="H1"></td>
 			</tr>
 			<tr>
 				<td></td>
@@ -110,6 +110,21 @@
 				<td id="H1"><a href="#">H</a></td>
 			</tr>
 		</table>
-		<script src="./code.js"></script>
+		<h2>Mochila</h2>
+		<div id="bag">
+				<div class="slot"><img src="/pieces/pawn_white.png" class="piece pawn white"    /></div>
+				<div class="slot"><img src="/pieces/rook_white.png" class="piece rook white"    /></div>
+				<div class="slot"><img src="/pieces/knight_white.png" class="piece knight white"/></div>
+				<div class="slot"><img src="/pieces/bishop_white.png" class="piece bishop white"/></div>
+				<div class="slot"><img src="/pieces/king_white.png" class="piece king white"    /></div>
+				<div class="slot"><img src="/pieces/queen_white.png" class="piece queen white"  /></div>
+				<div class="slot"><img src="/pieces/bishop_white.png" class="piece bishop white"/></div>
+				<div class="slot"><img src="/pieces/knight_white.png" class="piece knight white"/></div>
+				<div class="slot"><img src="/pieces/rook_white.png" class="piece rook white"    /></div>
+		</div>
+		<script src="/js/socket.js"></script>
+		<script src="/js/pieces.js"></script>
+		<script src="/js/gui.js"></script>
+		<script src="/js/main.js"></script>
 	</body>
 </html>
