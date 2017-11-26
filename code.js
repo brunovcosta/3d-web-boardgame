@@ -137,12 +137,12 @@ var moveRules = {
 	pawn: function(pos,color){
 		if(pos.coords[1]===1 && color==="white" || pos.coords[1]===6 && color==="black"){
 			return [
-				[0,1],
-				[0,2]
+				[0,color==="white"?1:-1],
+				[0,color==="white"?2:-2]
 			];
 		}else{
 			return [
-				[0,1]
+				[0,color==="white"?1:-1]
 			];
 		}
 	},
@@ -179,7 +179,6 @@ $('.piece').draggable({
 			if($(this).attr("class").split(" ").includes(type)){
 				var initialPos = Position($(this).parent().attr("id"));
 				var possibles = moveRules[type](initialPos,$(this).hasClass("black")?"black":"white");
-				console.log(possibles);
 				$(possibles.map(function(diff){
 					return "td:empty#"+initialPos.plus(diff).code;
 				}).join()).droppable({
