@@ -162,38 +162,61 @@ var moveRules = {
 
 var attackRules = {
 	king: moveRules.king,
+	queen: moveRules.king,
+	bishop: moveRules.king,
+	rook: moveRules.king,
+	knight: moveRules.king,
 	pawn: function(pos,color){
 		return [
-			[-1,1],
-			[+1,1]
+			[ 1,color==="white"?1:-1],
+			[-1,color==="white"?1:-1]
 		];
 	}
 };
 
-$('.piece').draggable({
-	containment: "table",
-	revert: 'invalid',
-	start: function(ev,ui){
-		$("td").droppable({disabled: true});
-		for(var type in moveRules){
-			if($(this).attr("class").split(" ").includes(type)){
-				var initialPos = Position($(this).parent().attr("id"));
-				var possibles = moveRules[type](initialPos,$(this).hasClass("black")?"black":"white");
-				$(possibles.map(function(diff){
-					return "td:empty#"+initialPos.plus(diff).code;
-				}).join()).droppable({
-					drop: onDrop,
-					disabled: false
-				}).addClass("highlight");
-			}
-		}
-	},
-	stop: function(){
-		$(".highlight").removeClass("highlight");
-	}
-});
+(function turn(turnColor){
+	$('.piece.'+(turnColor==="white"?"black":"white")).draggable({
+		disabled: true
+	});
+	$('.piece.'+turnColor).draggable({
+		disabled: false,
+		containment: "table",
+		revert: 'invalid',
+		start: function(ev,ui){
+			$("td").droppable({disabled: true});
+			for(var type in moveRules){
+				if($(this).attr("class").split(" ").includes(type)){
+					var initialPos = Position($(this).parent().attr("id"));
+					var color = $(this).hasClass("black")?"black":"white";
+					var opposite = (color==="black"?"white":"black");
+					var movePossibles = moveRules[type](initialPos,color);
+					$(movePossibles.map(function(diff){
+						return "td:empty#"+initialPos.plus(diff).code;
+					}).join()).droppable({
+						drop: moveDrop,
+						disabled: false
+					}).addClass("move-highlight");
 
-function onDrop(ev, ui) {
+					var attackPossibles = attackRules[type](initialPos,color);
+					$(attackPossibles.map(function(diff){
+						return "td:not(:empty):has(> ."+opposite+")#"+initialPos.plus(diff).code;
+					}).join()).droppable({
+						drop: attackDrop,
+						disabled: false
+					}).addClass("attack-highlight");
+				}
+			}
+		},
+		stop: function(){
+			$(".move-highlight").removeClass("move-highlight");
+			$(".attack-highlight").removeClass("attack-highlight");
+
+			turn(turnColor==="white"?"black":"white");
+		}
+	});
+})("white");
+
+function moveDrop(ev, ui) {
 	var dropped = ui.draggable;
 	var droppedOn = $(this);
 	$(droppedOn).droppable("disable");
@@ -201,4 +224,11 @@ function onDrop(ev, ui) {
 	$(dropped).detach().css({top: 0, left: 0}).appendTo(droppedOn);
 }
 
-
+function attackDrop(ev, ui) {
+	var dropped = ui.draggable;
+	var droppedOn = $(this);
+	droppedOn.empty();
+	$(droppedOn).droppable("disable");
+	$(dropped).parent().droppable("enable");
+	$(dropped).detach().css({top: 0, left: 0}).appendTo(droppedOn);
+}
