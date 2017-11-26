@@ -16,5 +16,9 @@ socket.onmessage=function (msg){
 		var from = oppositeCell(arr[1]);;
 		var to = oppositeCell(arr[2]);
 		attackPiece(from,to);
+	}else if(msg.data.startsWith("enter")){
+		$("#players_list").append("<li>teste");
+	}else if(msg.data.startsWith("leave")){
+		$("#players_list").empty();
 	}
 }

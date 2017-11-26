@@ -14,8 +14,6 @@ var server = http.createServer(function(req, res) {
 var wss = new ws.Server({server:server});
 
 var connections = [];
-var pairs = [];
-var wait = null;
 wss.on('connection', function(ws) {
 	connections.push(ws);
 	ws.on('message', function(jsonStr) {
