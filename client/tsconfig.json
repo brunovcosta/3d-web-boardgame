@@ -5,15 +5,12 @@
     "compilerOptions": {
         "noImplicitAny": true,
 		"moduleResolution": "node",
-		"module": "system",
+		"module": "commonjs",
 		"allowJs": true,
 		"traceResolution": false,
         "target": "es5",
 		"lib": ["es6","dom"],
 		"baseUrl": "src/app",
-		"paths": {
-			"lib": ["../lib"]
-		},
 		"typeRoots": ["./node_modules/@types"]
     }
 }
