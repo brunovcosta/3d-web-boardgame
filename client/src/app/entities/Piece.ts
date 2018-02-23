@@ -9,11 +9,6 @@ export default class Piece extends DraggableEntity{
 
 	constructor(context: GameContext){
 		super(context);
-		let geometry = new THREE.BoxBufferGeometry(this.width*.8,this.width*.8,this.width);
-		this.selectedMaterial = new THREE.MeshPhysicalMaterial( { color: 0xffffff } );
-		this.unselectedMaterial = new THREE.MeshPhysicalMaterial( { color: 0xababab } );
-		this.mesh = new THREE.Mesh( geometry, this.unselectedMaterial );
-		this.mesh.position.z = 20;
 	}
 
 	protected mouseDown(evt: MouseEvent){
@@ -39,6 +34,20 @@ export default class Piece extends DraggableEntity{
 		super.mouseUp(evt);
 		this.context.control.enableRotate=true;
 		this.snapToGrid(this.width);
+	}
+
+	public async init(){
+		let loader = new THREE.ColladaLoader();
+		let mesh = await new Promise((resolve,reject)=>{
+			loader.load("/models/robot.dae",resolve);
+		});
+		console.log(mesh);
+		this.mesh = <THREE.Mesh> mesh;
+		this.mesh.position.z = 20;
+		this.selectedMaterial = new THREE.MeshPhysicalMaterial( { color: 0xffffff } );
+		this.unselectedMaterial = new THREE.MeshPhysicalMaterial( { color: 0xababab } );
+
+		await super.init();
 	}
 }
 

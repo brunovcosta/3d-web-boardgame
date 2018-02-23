@@ -13,7 +13,7 @@ let cells: string[] = [
 	"________",
 	"________",
 	"_w_w_w_w",
-	"w_w_w_W_"
+	"w_w_w_w_"
 ];
 
 export default class Board extends GameEntity{
@@ -44,13 +44,15 @@ export default class Board extends GameEntity{
 		this.add(selector);
 	}
 
-	private addPieces(){
+	private async addPieces(){
 
 		for(let row in cells){
 			for(let column in cells){
 				let cell = cells[row][column];
 				if(cell!=="_"){
 					let piece = new Piece(this.context);
+					console.log(row,column);
+					await piece.init();
 					this.add(piece);
 					piece.mesh.position.x = piece.width*(+column) - this.rows*this.cellSize/2 + this.cellSize;
 					piece.mesh.position.y = piece.width*(+row) - this.rows*this.cellSize/2 + this.cellSize;
@@ -60,17 +62,20 @@ export default class Board extends GameEntity{
 		}
 	}
 
+	private placePieces(){
+	}
+
 	private addLight(){
-		this.context.scene.add( new THREE.AmbientLight( 0xffffff ) );
+		this.context.scene.add( new THREE.AmbientLight( 0xffffff) );
 		let light = new THREE.PointLight( 0xffffff, 1, 5000 );
 		light.position.set( 500, 500, 500 );
 		this.context.scene.add(light);
 	}
 
-	public init(){
-		this.addPieces();
+	public async init(){
+		await this.addPieces();
 		this.addSelector();
 		this.addLight();
-		super.init();
+		await super.init();
 	}
 }

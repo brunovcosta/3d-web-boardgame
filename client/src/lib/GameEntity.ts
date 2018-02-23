@@ -24,11 +24,11 @@ export default class GameEntity{
 		this.children.push(entiry)
 	}
 
-	public init(){
+	public async init(){
 		this.context.scene.add(this.mesh);
 		this.bindEvents();
 		for(let child of this.children){
-			child.init();
+			await child.init();
 		}
 	}
 
