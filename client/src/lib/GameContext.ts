@@ -1,15 +1,11 @@
+import {OrbitControls} from '../vendor/OrbitControls';
 import * as THREE from 'three';
 
 export default class GameContext{
 	public renderer: THREE.WebGLRenderer;
 	public camera: THREE.PerspectiveCamera;
 	public scene: THREE.Scene;
-
-	constructor(renderer: THREE.WebGLRenderer,camera: THREE.PerspectiveCamera,scene: THREE.Scene){
-		this.camera = camera;
-		this.scene = scene;
-		this.renderer = renderer;
-	}
+	public control: OrbitControls;
 
 	public getMouse3D(mouseEvent: MouseEvent) {
 		let x, y;
@@ -35,7 +31,6 @@ export default class GameContext{
 		let m = pMouse.z / ( pMouse.z - cam.z );
 
 		pos.x = pMouse.x + ( cam.x - pMouse.x ) * m;
-		pos.z = pMouse.z + ( cam.z - pMouse.z ) * m;
 		pos.y = pMouse.y + ( cam.y - pMouse.y ) * m;
 
 		return pos;

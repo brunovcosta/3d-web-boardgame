@@ -26,7 +26,7 @@ export default class DraggableEntity extends GameEntity{
 		renderer.domElement.addEventListener('mouseup',_=>this.mouseUp(_),false);
 	}
 
-	private mouseDown(evt: MouseEvent){
+	protected mouseDown(evt: MouseEvent){
 		this.prevPos.x = this.mesh.position.x;
 		this.prevPos.y = this.mesh.position.y;
 		let pos = this.context.getMouse3D(evt);
@@ -36,13 +36,13 @@ export default class DraggableEntity extends GameEntity{
 		}
 	}
 
-	private mouseUp(evt: MouseEvent){
+	protected mouseUp(evt: MouseEvent){
 		if(evt.which === 1){
 			this.dragging=false;
 		}
 	}
 
-	private mouseMove(evt: MouseEvent){
+	protected mouseMove(evt: MouseEvent){
 		let pos = this.context.getMouse3D(evt);
 		if(this.dragging){
 			this.mesh.position.x = pos.x;
