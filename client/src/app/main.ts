@@ -46,7 +46,5 @@ function animate() {
 	context.renderer.render( context.scene, context.camera );
 }
 
-window.onload = ()=>{
-	init();
-	animate();
-}
+init();
+animate();

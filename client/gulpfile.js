@@ -15,7 +15,7 @@ gulp.task("copy-res",function(){
 	return gulp.src("./res/**/*").pipe(gulp.dest("./dist"));
 })
 
-gulp.task("default", ["copy-res","copy-html"], function () {
+gulp.task("default", ["copy-html"], function () {
     return browserify({
         basedir: ".",
         debug: true,

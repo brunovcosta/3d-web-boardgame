@@ -37,8 +37,9 @@ export default class Piece extends DraggableEntity{
 	}
 
 	public async init(){
-		let loader = new THREE.ColladaLoader();
 		let mesh = await new Promise((resolve,reject)=>{
+			console.log(THREE);
+			let loader = new THREE.ColladaLoader();
 			loader.load("/models/robot.dae",resolve);
 		});
 		console.log(mesh);
