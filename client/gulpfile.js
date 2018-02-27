@@ -3,28 +3,32 @@ var browserify = require("browserify");
 var source = require("vinyl-source-stream");
 var tsify = require("tsify");
 var paths = {
-    pages: ["src/*.html"]
+	pages: ["src/*.html"]
 };
 
 gulp.task("copy-html", function () {
-    return gulp.src(paths.pages)
-        .pipe(gulp.dest("dist"));
+	return gulp.src(paths.pages)
+	.pipe(gulp.dest("dist"));
 });
 
-gulp.task("default", ["copy-html"], function () {
-    return browserify({
-        basedir: ".",
-        debug: true,
-        entries: [
+gulp.task("copy-res",function(){
+	return gulp.src("./res/**/*").pipe(gulp.dest("./dist"));
+})
+
+gulp.task("default", ["copy-res","copy-html"], function () {
+	return browserify({
+		basedir: ".",
+		debug: true,
+		entries: [
 			"src/app/main.ts"
 		],
-        cache: {},
-        packageCache: {}
-    })
-    .plugin(tsify)
-    .bundle()
-    .pipe(source("bundle.js"))
-    .pipe(gulp.dest("dist"));
+		cache: {},
+		packageCache: {}
+	})
+	.plugin(tsify)
+	.bundle()
+	.pipe(source("bundle.js"))
+	.pipe(gulp.dest("dist"));
 });
 
 gulp.task("server",function(){
