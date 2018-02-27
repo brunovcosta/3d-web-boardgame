@@ -34,6 +34,7 @@ export default class Board extends GameEntity{
 			side: THREE.DoubleSide
 		});
 		this.mesh = new THREE.Mesh( geometry, material );
+		this.mesh.name = "Board";
 		this.mesh.position.x = this.cellSize/2;
 		this.mesh.position.y = this.cellSize/2;
 

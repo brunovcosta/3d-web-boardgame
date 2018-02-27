@@ -18,18 +18,18 @@ export default class GameContext{
 			y = mouseEvent.layerY;
 		}
 
-		let pos = new THREE.Vector3(0, 0, 0);
 		let pMouse = new THREE.Vector3(
 			(x / this.renderer.domElement.width) * 2 - 1,
 			-(y / this.renderer.domElement.height) * 2 + 1,
-			1
+			0
 		);
-		//
+
 		pMouse.unproject(this.camera);
 
 		let cam = this.camera.position;
 		let m = pMouse.z / ( pMouse.z - cam.z );
 
+		let pos = new THREE.Vector3(0, 0, 0);
 		pos.x = pMouse.x + ( cam.x - pMouse.x ) * m;
 		pos.y = pMouse.y + ( cam.y - pMouse.y ) * m;
 
