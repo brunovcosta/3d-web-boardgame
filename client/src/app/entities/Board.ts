@@ -6,14 +6,14 @@ import Selector from './Selector';
 
 
 let cells: string[] = [
-	"_b_b_b_b",
-	"b_b_b_b_",
 	"________",
 	"________",
 	"________",
 	"________",
-	"_w_w_w_w",
-	"w_w_w_w_"
+	"________",
+	"________",
+	"________",
+	"______w_"
 ];
 
 export default class Board extends GameEntity{

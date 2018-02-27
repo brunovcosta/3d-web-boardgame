@@ -11,15 +11,13 @@ gulp.task("copy-html", function () {
         .pipe(gulp.dest("dist"));
 });
 
-gulp.task("copy-res",function(){
-	return gulp.src("./res/**/*").pipe(gulp.dest("./dist"));
-})
-
 gulp.task("default", ["copy-html"], function () {
     return browserify({
         basedir: ".",
         debug: true,
-        entries: ["src/app/main.ts"],
+        entries: [
+			"src/app/main.ts"
+		],
         cache: {},
         packageCache: {}
     })

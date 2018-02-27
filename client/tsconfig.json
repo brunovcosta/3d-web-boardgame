@@ -3,7 +3,7 @@
         "./src/app/main.ts"
     ],
     "compilerOptions": {
-        "noImplicitAny": true,
+        "noImplicitAny": false,
 		"moduleResolution": "node",
 		"module": "commonjs",
 		"allowJs": true,

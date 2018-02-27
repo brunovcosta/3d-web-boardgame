@@ -1,6 +1,7 @@
 import * as THREE from 'three';
 import DraggableEntity from '../../lib/DraggableEntity';
 import GameContext from '../../lib/GameContext';
+import * as ColladaLoader from 'three-collada-loader';
 
 export default class Piece extends DraggableEntity{
 	public width = 25;
@@ -37,13 +38,13 @@ export default class Piece extends DraggableEntity{
 	}
 
 	public async init(){
-		let mesh = await new Promise((resolve,reject)=>{
+		let collada: any = await new Promise((resolve,reject)=>{
 			console.log(THREE);
-			let loader = new THREE.ColladaLoader();
+			let loader = new ColladaLoader();
 			loader.load("/models/robot.dae",resolve);
 		});
-		console.log(mesh);
-		this.mesh = <THREE.Mesh> mesh;
+		this.mesh = collada.scene;
+		this.mesh.geometry = new THREE.BoxBufferGeometry(this.width,this.width,this.width);
 		this.mesh.position.z = 20;
 		this.selectedMaterial = new THREE.MeshPhysicalMaterial( { color: 0xffffff } );
 		this.unselectedMaterial = new THREE.MeshPhysicalMaterial( { color: 0xababab } );

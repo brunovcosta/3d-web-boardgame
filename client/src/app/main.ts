@@ -8,7 +8,6 @@ let camera: THREE.PerspectiveCamera;
 let scene: THREE.Scene
 
 
-
 let context = new GameContext();
 function init() {
 

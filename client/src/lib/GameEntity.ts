@@ -12,12 +12,17 @@ export default class GameEntity{
 	}
 
 	public contains(point: THREE.Vector3){
-		let w = (<THREE.BoxBufferGeometry> this.mesh.geometry).parameters.width;
-		let h = (<THREE.BoxBufferGeometry> this.mesh.geometry).parameters.height;
-		let x = this.mesh.position.x;
-		let y = this.mesh.position.y;
+		if(this.mesh.geometry){
+			let w = (<THREE.BoxBufferGeometry> this.mesh.geometry).parameters.width;
+			let h = (<THREE.BoxBufferGeometry> this.mesh.geometry).parameters.height;
+			let x = this.mesh.position.x;
+			let y = this.mesh.position.y;
 
-		return x-w/2 < point.x && x+w/2 > point.x && y-h/2 < point.y && y+h/2 > point.y;
+			return x-w/2 < point.x && x+w/2 > point.x && y-h/2 < point.y && y+h/2 > point.y;
+		}else{
+			return false;
+		}
+
 	}
 
 	public add(entiry: GameEntity){
