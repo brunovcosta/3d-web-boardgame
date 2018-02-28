@@ -28,7 +28,7 @@ export default class Board extends GameEntity{
 			200,//this.rows*this.cellSize,
 			this.height);
 
-		let texture = new THREE.TextureLoader().load('/tex/board.jpg');
+		let texture = new THREE.TextureLoader().load('tex/board.jpg');
 		let material = new THREE.MeshPhysicalMaterial( {
 			map: texture,
 			side: THREE.DoubleSide

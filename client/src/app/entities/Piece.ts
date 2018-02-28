@@ -41,7 +41,7 @@ export default class Piece extends DraggableEntity{
 		let collada: any = await new Promise((resolve,reject)=>{
 			console.log(THREE);
 			let loader = new ColladaLoader();
-			loader.load("/models/robot.dae",resolve);
+			loader.load("models/robot.dae",resolve);
 		});
 		this.mesh = collada.scene;
 		this.mesh.geometry = new THREE.BoxBufferGeometry(this.width,this.width,this.width);
