@@ -8,8 +8,12 @@ export default class Piece extends DraggableEntity{
 	private selectedMaterial: THREE.Material;
 	private unselectedMaterial: THREE.Material;
 
+	public position: THREE.Vector3;
+
 	constructor(context: GameContext){
 		super(context);
+
+		this.position = new THREE.Vector3();
 	}
 
 	protected mouseDown(evt: MouseEvent){
@@ -45,6 +49,8 @@ export default class Piece extends DraggableEntity{
 		});
 		this.mesh = collada.scene;
 		this.mesh.geometry = new THREE.BoxBufferGeometry(this.width,this.width,this.width);
+		this.mesh.position.x = this.position.x;
+		this.mesh.position.y = this.position.y;
 		this.mesh.position.z = 20;
 		this.selectedMaterial = new THREE.MeshPhysicalMaterial( { color: 0xffffff } );
 		this.unselectedMaterial = new THREE.MeshPhysicalMaterial( { color: 0xababab } );

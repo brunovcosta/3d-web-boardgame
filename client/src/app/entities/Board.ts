@@ -13,7 +13,7 @@ let cells: string[] = [
 	"________",
 	"________",
 	"________",
-	"______w_"
+	"_w_w__w_"
 ];
 
 export default class Board extends GameEntity{
@@ -53,11 +53,10 @@ export default class Board extends GameEntity{
 				if(cell!=="_"){
 					let piece = new Piece(this.context);
 					console.log(row,column);
-					await piece.init();
-					this.add(piece);
-					piece.mesh.position.x = piece.width*(+column) - this.rows*this.cellSize/2 + this.cellSize;
-					piece.mesh.position.y = piece.width*(+row) - this.rows*this.cellSize/2 + this.cellSize;
+					piece.position.x = piece.width*(+column) - this.rows*this.cellSize/2 + this.cellSize;
+					piece.position.y = piece.width*(+row) - this.rows*this.cellSize/2 + this.cellSize;
 					piece.setDraggable();
+					await piece.init();
 				}
 			}
 		}
