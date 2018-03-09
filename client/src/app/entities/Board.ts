@@ -5,15 +5,21 @@ import Piece from './Piece';
 import Selector from './Selector';
 
 
+interface PieceMoveEvent{
+	piece: Piece;
+	from: THREE.Vector3;
+	to: THREE.Vector3;
+}
+
 let cells: string[] = [
+	"b_b_b_b_",
+	"_b_b_b_b",
 	"________",
 	"________",
 	"________",
 	"________",
-	"________",
-	"________",
-	"________",
-	"_w_w__w_"
+	"w_w_w_w_",
+	"_w_w_w_w"
 ];
 
 export default class Board extends GameEntity{
@@ -29,7 +35,7 @@ export default class Board extends GameEntity{
 			this.height);
 
 		let texture = new THREE.TextureLoader().load('tex/board.jpg');
-		let material = new THREE.MeshPhysicalMaterial( {
+		let material = new THREE.MeshBasicMaterial( {
 			map: texture,
 			side: THREE.DoubleSide
 		});
@@ -38,6 +44,12 @@ export default class Board extends GameEntity{
 		this.mesh.position.x = this.cellSize/2;
 		this.mesh.position.y = this.cellSize/2;
 
+		this.context.pubsub.subscribe("move",_=>this.pieceMove(_));
+
+	}
+
+	private pieceMove(evt: PieceMoveEvent){
+		console.log(evt);
 	}
 
 	private addSelector(){
@@ -51,11 +63,12 @@ export default class Board extends GameEntity{
 			for(let column in cells){
 				let cell = cells[row][column];
 				if(cell!=="_"){
-					let piece = new Piece(this.context);
+					let piece = new Piece(this.context,{
+						team: cell,
+					});
 					console.log(row,column);
 					piece.position.x = piece.width*(+column) - this.rows*this.cellSize/2 + this.cellSize;
 					piece.position.y = piece.width*(+row) - this.rows*this.cellSize/2 + this.cellSize;
-					piece.setDraggable();
 					await piece.init();
 				}
 			}

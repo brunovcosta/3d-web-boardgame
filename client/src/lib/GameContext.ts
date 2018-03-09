@@ -1,4 +1,5 @@
 import {OrbitControls} from '../vendor/OrbitControls';
+import PubSub from './PubSub';
 import * as THREE from 'three';
 
 export default class GameContext{
@@ -6,6 +7,11 @@ export default class GameContext{
 	public camera: THREE.PerspectiveCamera;
 	public scene: THREE.Scene;
 	public control: OrbitControls;
+	public pubsub: PubSub;
+
+	public constructor(){
+		this.pubsub = new PubSub();
+	}
 
 	public getMouse3D(mouseEvent: MouseEvent) {
 		let x, y;
