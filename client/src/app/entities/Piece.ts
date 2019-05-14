@@ -1,7 +1,7 @@
 import * as THREE from 'three';
 import DraggableEntity from '../../lib/DraggableEntity';
 import GameContext from '../../lib/GameContext';
-import * as ColladaLoader from 'three-collada-loader';
+import * as ColladaLoader from 'three-collada-loader-2';
 
 interface PieceDescriptor{
 	team: string;
