@@ -25,8 +25,8 @@ export default class GameContext{
 		}
 
 		let pMouse = new THREE.Vector3(
-			(x / this.renderer.domElement.width) * 2 - 1,
-			-(y / this.renderer.domElement.height) * 2 + 1,
+			(x / this.renderer.domElement.width) * 4 - 1,
+			-(y / this.renderer.domElement.height) * 4 + 1,
 			0
 		);
 
